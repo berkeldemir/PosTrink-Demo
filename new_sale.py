@@ -184,7 +184,7 @@ class CartScreen(QWidget):
 			}
 		""")
 
-		self.cancel_button = QPushButton("İptal")
+		self.cancel_button = QPushButton("İşlem İptali")
 		self.cancel_button.setStyleSheet(base_style + """
 			QPushButton {
 				background-color: #b0675a;

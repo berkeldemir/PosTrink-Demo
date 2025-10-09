@@ -273,6 +273,23 @@ class DatabaseManager:
 		try:
 			cursor = self.conn.cursor()
 			cursor.execute("""
+				UPDATE items
+				SET item_stock = item_stock + (
+					SELECT item_count
+					FROM cart_items
+					WHERE cart_items.item_id = items.item_id
+					AND cart_items.sale_id = ?
+				)
+				WHERE EXISTS (
+					SELECT 1
+					FROM cart_items
+					WHERE cart_items.item_id = items.item_id
+					AND cart_items.sale_id = ?
+				);
+			""", (sale_id, sale_id))
+			self.conn.commit()
+			cursor = self.conn.cursor()
+			cursor.execute("""
 				DELETE FROM cart_items
 				WHERE sale_id = ?
 			""", (sale_id, ))
@@ -283,6 +300,7 @@ class DatabaseManager:
 				WHERE sale_id = ?
 			""", (sale_id, ))
 			self.conn.commit()
+			print(f"UPDATE  : {sale_id} sale removed.")
 		except Exception as e:
 			print(f"ERROR   : remove_cart_of_sale: {e}")
 

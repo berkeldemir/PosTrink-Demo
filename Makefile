@@ -18,7 +18,7 @@ clean:
 	find . -type d -name "__pycache__" -exec rm -r {} +
 	find . -type f -name "*.pyc" -exec rm -f {} +
 	rm -f *.pyc
-	rm -fr build dist .eggs *.egg-info
+	rm -rf build dist .eggs *.egg-info
 
 fclean: clean
 	rm -rf $(VENV_NAME)
