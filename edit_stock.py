@@ -14,7 +14,7 @@ class InfoBoxWidget(QWidget):
 		self.setObjectName("InfoBox")
 
 		self.layout = QHBoxLayout(self)
-		self.layout.setContentsMargins(20, 15, 20, 20)
+		self.layout.setContentsMargins(8, 6, 8, 6)
 		self.layout.setSpacing(10)
 		self.layout.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
 
@@ -89,7 +89,7 @@ class InfoBoxWidget(QWidget):
 		style_sheet = f"""
 			QLabel {{
 				color: {text_color};
-				font-size: 24px;
+				font-size: 20px;
 				font-weight: 700;
 				background-color: transparent;
 			}}
@@ -100,7 +100,7 @@ class ItemEditDialog(QDialog):
 	def __init__(self, item_id, db, parent=None):
 		super().__init__(parent)
 		self.setWindowTitle(f"Ürün {item_id} düzenleniyor:")
-		self.setStyleSheet("background-color: #111; color: white;")
+		self.setStyleSheet("background-color: #111; color: #e9eaf2;")
 
 		details = db.get_item_details(item_id)
 
@@ -108,19 +108,19 @@ class ItemEditDialog(QDialog):
 		self.setLayout(layout)
 
 		self.labelstyle = """
-			font-size: 24px;
+			font-size: 20px;
 			font-weight: bold;
-			color: white;
+			color: #e9eaf2;
 		"""
 
 		self.inputstyle = """
 			QLineEdit {
-				font-size: 28px;
-				padding: 15px;
-				background-color: #34495e;
-				color: white;
-				border: 2px solid white;
-				border-radius: 10px;
+				font-size: 20px;
+				padding: 6px;
+				background-color: #011f26;
+				color: #e9eaf2;
+				border: 2px solid #e9eaf2;
+				border-radius: 12px;
 			}
 		"""
 
@@ -168,16 +168,16 @@ class ItemEditDialog(QDialog):
 		self.remove_button = QPushButton("")
 		self.remove_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 28px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 15px;
-				border-radius: 10px;
-				border: 2px solid white;
+				padding: 6px;
+				border-radius: 12px;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 		self.remove_button.setIcon(trash_icon)
@@ -191,16 +191,16 @@ class ItemEditDialog(QDialog):
 		self.cancel_button = QPushButton("Vazgeç")
 		self.cancel_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 28px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 15px;
-				border-radius: 10px;
-				border: 2px solid white;
+				padding: 6px;
+				border-radius: 12px;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 		self.cancel_button.clicked.connect(lambda:{
@@ -211,16 +211,16 @@ class ItemEditDialog(QDialog):
 		self.complete_button = QPushButton("Tamamla")
 		self.complete_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 28px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 15px;
-				border-radius: 10px;
-				border: 2px solid white;
+				padding: 6px;
+				border-radius: 12px;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 		self.complete_button.clicked.connect(lambda: (
@@ -267,9 +267,9 @@ class EditStockScreen(QWidget):
 
 		self.title_text = "STOKLAR"
 		self.title_style = """
-			font-size: 56px;
+			font-size: 36px;
 			font-weight: bold;
-			color: white;
+			color: #e9eaf2;
 		"""
 		self.title = QLabel(self.title_text)
 		self.title.setStyleSheet(self.title_style)
@@ -278,12 +278,12 @@ class EditStockScreen(QWidget):
 
 		self.inputstyle = """
 			QLineEdit {
-				font-size: 28px;
-				padding: 15px;
-				background-color: #34495e;
-				color: white;
-				border: 2px solid white;
-				border-radius: 10px;
+				font-size: 20px;
+				padding: 6px;
+				background-color: #011f26;
+				color: #e9eaf2;
+				border: 2px solid #e9eaf2;
+				border-radius: 12px;
 			}
 		"""
 
@@ -313,32 +313,32 @@ class EditStockScreen(QWidget):
 		self.add_item_button = QPushButton("Ürün Ekle")
 		self.add_item_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 28px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 15px;
-				border-radius: 10px;
-				border: 2px solid white;
+				padding: 6px;
+				border-radius: 12px;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 
 		self.remove_filters_button = QPushButton("X")
 		self.remove_filters_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 28px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 15px;
-				border-radius: 10px;
-				border: 2px solid white;
+				padding: 6px;
+				border-radius: 12px;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 
@@ -383,18 +383,18 @@ class EditStockScreen(QWidget):
 		back_button = QPushButton("Geri")
 		back_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 48px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
-				width: 450px;
-				height: 80px;
-				border: 2px solid white;
+				padding: 8px;
+				border-radius: 12px;
+				width: 300px;
+				height: 40px;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 		back_button.clicked.connect(self.back_to_menu.emit)
@@ -467,54 +467,54 @@ class EditStockScreen(QWidget):
 		row_widget = QWidget()
 		row_widget.setStyleSheet("""
 			QWidget {
-				background-color: #34495e;
-				border-radius: 10px;
-				padding: 15px;
+				background-color: #011f26;
+				border-radius: 12px;
+				padding: 6px;
 			}
 		""")	
 		row_layout = QHBoxLayout(row_widget)
 
 		item_id = QLabel(str(row["item_id"]))
 		item_id.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 
 		item_name = QLabel(row["item_name"])
 		item_name.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 
 		item_price = QLabel(str(f"{row["item_price"]:.2f}₺"))
 		item_price.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 
 		item_stock = QLabel(str(row["item_stock"]) + " ad.")
 		item_stock.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 
 		edit_btn = QPushButton("Düzenle")
 		edit_btn.setStyleSheet("""
 			QPushButton {
-				background-color: #777;
-				color: white;
-				font-size: 24px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 16px;
 				font-weight: bold;
-				padding: 8px 12px;
-				border-radius: 8px;
+				padding: 6px;
+				border-radius: 12px;
 				margin-left: 10px;
 			}
 			QPushButton:hover {
-				background-color: #2ecc71;
+				background-color: #03658c;
 			}
 		""")
 
@@ -537,7 +537,7 @@ class EditStockScreen(QWidget):
 	def	error_message(self, msg):
 		self.title.setText(msg)
 		self.title.setStyleSheet("""
-			font-size: 56px;
+			font-size: 36px;
 			font-weight: bold;
 			color: #aa5555;
 		""")

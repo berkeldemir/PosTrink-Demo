@@ -23,66 +23,49 @@ class PaymentDialog(QDialog):
 		super().__init__(parent)
 		self.setWindowTitle("Ödeme Yöntemi Seçin")
 		self.setGeometry(0, 0, 400, 200)
-		self.setStyleSheet("background-color: #333; color: white;")
+		self.setStyleSheet("background-color: #333; color: #e9eaf2;")
 
 		layout = QVBoxLayout()
 		self.setLayout(layout)
 
-		cash_button = QPushButton("Nakit")
-		cash_button.setStyleSheet("""
+		base_style = """
 			QPushButton {
-				color: white;
-				font-size: 48px;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
-				width: 275px;
-				height: 60px;
-				background-color: #5ab05b;
-				border: 2px solid white;
+				padding: 8px;
+				border-radius: 12px;
+				width: 150px;
+				height: 40px;
+				border: 1px solid #e9eaf2;
 			}
 			QPushButton:hover {
 				border: 5px solid #999;
+			}
+		"""
+
+		cash_button = QPushButton("Nakit")
+		cash_button.setStyleSheet(base_style + """
+			QPushButton {
+				background-color: #5b8c5a;
 			}
 		""")
 		cash_button.clicked.connect(self.accept_cash)
 		layout.addWidget(cash_button)
 
 		iban_button = QPushButton("IBAN")
-		iban_button.setStyleSheet("""
+		iban_button.setStyleSheet(base_style + """
 			QPushButton {
-				color: white;
-				font-size: 48px;
-				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
-				width: 250px;
-				height: 60px;
-				background-color: #5aacb0;
-				border: 2px solid white;
-			}
-			QPushButton:hover {
-				border: 5px solid #999;
+				background-color: #1b1a9a;
 			}
 		""")
 		iban_button.clicked.connect(self.accept_iban)
 		layout.addWidget(iban_button)
 
 		cancel_button = QPushButton("İptal")
-		cancel_button.setStyleSheet("""
+		cancel_button.setStyleSheet(base_style + """
 			QPushButton {
-				color: white;
-				font-size: 48px;
-				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
-				width: 250px;
-				height: 60px;
-				background-color: #b0675a;
-				border: 2px solid white;
-			}
-			QPushButton:hover {
-				border: 5px solid #999;
+				background-color: #8c5b5a;
 			}
 		""")
 		cancel_button.clicked.connect(self.accept_cancel)
@@ -233,13 +216,13 @@ class Window1(QMainWindow):
 
 		base_style = """
 			QPushButton {
-				color: white;
-				font-size: 48px;
+				color: #e9eaf2;
+				font-size: 36px;
 				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
+				padding: 8px;
+				border-radius: 12px;
 				width: 500px;
-				height: 80px;
+				height: 90px;
 			}
 			QPushButton:hover {
 				border: 5px solid #999;
@@ -297,7 +280,7 @@ class Window1(QMainWindow):
 	def start_sale_and_show_cart(self):
 		customer_name = self.new_sale_screen.name_input.text().strip()
 		if not customer_name:
-			customer_name = "UNKNOWN"
+			customer_name = "BİLİNMEYEN"
 
 		self.controller.curr_customer_name = customer_name
 		self.controller.curr_sale_id = self.controller.database_manager.start_new_sale(customer_name)

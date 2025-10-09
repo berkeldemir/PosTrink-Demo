@@ -17,9 +17,9 @@ class NewSaleScreen(QWidget):
 
 		title = QLabel("MÜŞTERİ ADI")
 		title.setStyleSheet("""
-			font-size: 56px;
+			font-size: 36px;
 			font-weight: bold;
-			color: white;
+			color: #e9eaf2;
 		""")
 		title.setAlignment(Qt.AlignCenter)
 
@@ -27,29 +27,29 @@ class NewSaleScreen(QWidget):
 		self.name_input.setPlaceholderText("")
 		self.name_input.setStyleSheet("""
 			QLineEdit {
-				font-size: 36px;
-				padding: 15px;
-				background-color: #34495e;
-				color: white;
-				border: 2px solid white;
-				border-radius: 10px;
+				font-size: 20px;
+				padding: 6px;
+				background-color: #011f26;
+				color: #e9eaf2;
+				border: 2px solid #e9eaf2;
+				border-radius: 12px;
 			}
 		""")
 		self.name_input.setMaxLength(32)
-		self.name_input.setFixedSize(750, 80)
+		self.name_input.setFixedSize(750, 60)
 
 		self.next_button = QPushButton("Devam")
 		self.next_button.setStyleSheet("""
 			QPushButton {
 				background-color: #55cc55;
-				color: white;
-				font-size: 36px;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 20px;
+				padding: 8px;
 				margin-top: 5px;
-				border-radius: 10px;
+				border-radius: 12px;
 				height: 60px;
-				border: 2px solid white;
+				border: 2px solid #e9eaf2;
 			}
 		""")
 
@@ -58,17 +58,17 @@ class NewSaleScreen(QWidget):
 		self.back_button = QPushButton("Geri")
 		self.back_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 36px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
+				padding: 8px;
+				border-radius: 12px;
 				height: 60px;
-				border: 2px solid white;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 
@@ -104,9 +104,9 @@ class CartScreen(QWidget):
 		info_layout.setAlignment(Qt.AlignTop)
 
 		label_style = """
-			font-size: 28px;
-			color: white;
-			padding: 10px;
+			font-size: 20px;
+			color: #e9eaf2;
+			padding: 8px;
 			font-weight: bold;
 		"""
 		self.customer_label = QLabel("Müşteri: -")
@@ -134,7 +134,7 @@ class CartScreen(QWidget):
 		self.products_scroll_area.setStyleSheet("""
 			QScrollArea {
 				border: 2px solid #111;
-				border-radius: 10px;
+				border-radius: 12px;
 				text-align: left;
 				background-color: #333;
 			}
@@ -153,7 +153,7 @@ class CartScreen(QWidget):
 		self.cart_scroll_area.setStyleSheet("""
 			QScrollArea {
 				border: 2px solid #111;
-				border-radius: 10px;
+				border-radius: 12px;
 				background-color: #333;
 			}
 		""")
@@ -163,40 +163,38 @@ class CartScreen(QWidget):
 
 		base_style = """
 			QPushButton {
-				color: white;
-				font-size: 36px;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
-				width: 275px;
-				height: 60px;
+				padding: 8px;
+				border: 2px solid #e9eaf2;
+				border-radius: 12px;
+				width: 150px;
+				height: 36px;
 			}
 			QPushButton:hover {
-				border: 5px solid #999;
+				border: 2px solid #999;
 			}
 		"""
 
 		self.back_button = QPushButton("Askıya Al")
 		self.back_button.setStyleSheet(base_style + """
 			QPushButton {
-				background-color: #b0ac5a;
-				border: 2px solid white;
+				background-color: #bfab49;
 			}
 		""")
 
 		self.cancel_button = QPushButton("İşlem İptali")
 		self.cancel_button.setStyleSheet(base_style + """
 			QPushButton {
-				background-color: #b0675a;
-				border: 2px solid white;
+				background-color: #e3655b;
 			}
 		""")
 
 		self.payment_button = QPushButton("Ödeme")
 		self.payment_button.setStyleSheet(base_style + """
 			QPushButton {
-				background-color: #cccccc;
-				border: 2px solid white;
+				background-color: #5b8c5a;
 			}
 		""")
 
@@ -262,15 +260,15 @@ class CartScreen(QWidget):
 			item_button.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
 			item_button.setStyleSheet("""
 				QPushButton {
-					background-color: #2c3e50;
-					color: white;
-					font-size: 32px;
+					background-color: #024059;
+					color: #e9eaf2;
+					font-size: 20px;
 					font-weight: bold;
 					border: 2px solid #555;
-					border-radius: 10px;
+					border-radius: 12px;
 				}
 				QPushButton:hover {
-					background-color: #34495e;
+					background-color: #03658c;
 				}
 			""")
 			item_button.clicked.connect(lambda _, id=product['item_id'], ad=app_data: self.handle_product_click(id, ad))
@@ -296,16 +294,16 @@ class CartScreen(QWidget):
 		
 		row_container_style = """
 			QWidget {
-				background-color: #2c3e50;
+				background-color: #024059;
 				margin: 0px 0px 0px 0px;
-				color: white;
-				border: .3px solid white;
-				border-radius: 5px;
-				margin-bottom: 5px;
+				color: #e9eaf2;
+				border: .3px solid #e9eaf2;
+				border-radius: 12px;
+				margin-bottom: 2px;
 			}
 		"""
 		row_label_style = """
-			font-size: 28px;
+			font-size: 20px;
 			font-weight: bold;
 		"""
 		for i, item in enumerate(cart_items):
@@ -320,7 +318,7 @@ class CartScreen(QWidget):
 			item_row_widget = QWidget()
 			item_row_widget.setStyleSheet(row_container_style + special_color)
 			item_row_layout = QHBoxLayout(item_row_widget)
-			item_row_layout.setContentsMargins(5, 5, 5, 5)
+			item_row_layout.setContentsMargins(4, 4, 4, 4)
 
 			item_number_lbl = QLabel(f"{item['item_count']}")
 			item_number_lbl.setStyleSheet(row_label_style + "min-width: 16 px;")
@@ -346,7 +344,7 @@ class CartScreen(QWidget):
 		subtotal_row = QWidget()
 		subtotal_row.setStyleSheet(row_container_style + "QWidget{background-color: #50503e;}")
 		subtotal_layout = QHBoxLayout(subtotal_row)
-		subtotal_layout.setContentsMargins(5, 5, 5, 5)
+		subtotal_layout.setContentsMargins(4, 4, 4, 4)
 
 		subtotal_label = QLabel("ARA TOPLAM:")
 		subtotal_label.setStyleSheet(row_label_style)
@@ -361,7 +359,7 @@ class CartScreen(QWidget):
 		disc_row = QWidget()
 		disc_row.setStyleSheet(row_container_style + "QWidget{background-color: #50503e;}")
 		disc_layout = QHBoxLayout(disc_row)
-		disc_layout.setContentsMargins(5, 5, 5, 5)
+		disc_layout.setContentsMargins(4, 4, 4, 4)
 
 		disc_label = QLabel("TOPLAM İNDİRİM:")
 		disc_label.setStyleSheet(row_label_style)
@@ -376,7 +374,7 @@ class CartScreen(QWidget):
 		total_row = QWidget()
 		total_row.setStyleSheet(row_container_style + "QWidget{background-color: #50503e;}")
 		total_layout = QHBoxLayout(total_row)
-		total_layout.setContentsMargins(5, 5, 5, 5)
+		total_layout.setContentsMargins(4, 4, 4, 4)
 
 		total_label = QLabel("TOTAL:")
 		total_label.setStyleSheet(row_label_style)
@@ -406,9 +404,9 @@ class CustomerCartScreen(QWidget):
 		self.date_time_label = QLabel("-")
 
 		label_style = """
-			font-size: 28px;
-			color: white;
-			padding: 10px;
+			font-size: 20px;
+			color: #e9eaf2;
+			padding: 8px;
 			font-weight: bold;
 		"""
 		self.customer_label.setStyleSheet(label_style)
@@ -432,7 +430,7 @@ class CustomerCartScreen(QWidget):
 		self.cart_scroll_area.setStyleSheet("""
 			QScrollArea {
 				border: 2px solid #111;
-				border-radius: 10px;
+				border-radius: 12px;
 				background-color: #333;
 			}
 		""")
@@ -470,16 +468,16 @@ class CustomerCartScreen(QWidget):
 		
 		row_container_style = """
 			QWidget {
-				background-color: #2c3e50;
+				background-color: #024059;
 				margin: 0px 0px 0px 0px;
-				color: white;
-				border: .3px solid white;
-				border-radius: 5px;
-				margin-bottom: 5px;
+				color: #e9eaf2;
+				border: .3px solid #e9eaf2;
+				border-radius: 12px;
+				margin-bottom: 2px;
 			}
 		"""
 		row_label_style = """
-			font-size: 36px;
+			font-size: 20px;
 			font-weight: bold;
 		"""
 		for i, item in enumerate(cart_items):
@@ -494,7 +492,7 @@ class CustomerCartScreen(QWidget):
 			item_row_widget = QWidget()
 			item_row_widget.setStyleSheet(row_container_style + special_color)
 			item_row_layout = QHBoxLayout(item_row_widget)
-			item_row_layout.setContentsMargins(5, 5, 5, 5)
+			item_row_layout.setContentsMargins(4, 4, 4, 4)
 
 			item_number_lbl = QLabel(f"{item['item_count']}")
 			item_number_lbl.setStyleSheet(row_label_style + "min-width: 16 px;")
@@ -520,7 +518,7 @@ class CustomerCartScreen(QWidget):
 		subtotal_row = QWidget()
 		subtotal_row.setStyleSheet(row_container_style + "QWidget{background-color: #50503e;}")
 		subtotal_layout = QHBoxLayout(subtotal_row)
-		subtotal_layout.setContentsMargins(5, 5, 5, 5)
+		subtotal_layout.setContentsMargins(4, 4, 4, 4)
 
 		subtotal_label = QLabel("ARA TOPLAM:")
 		subtotal_label.setStyleSheet(row_label_style)
@@ -535,7 +533,7 @@ class CustomerCartScreen(QWidget):
 		disc_row = QWidget()
 		disc_row.setStyleSheet(row_container_style + "QWidget{background-color: #50503e;}")
 		disc_layout = QHBoxLayout(disc_row)
-		disc_layout.setContentsMargins(5, 5, 5, 5)
+		disc_layout.setContentsMargins(4, 4, 4, 4)
 
 		disc_label = QLabel("TOPLAM İNDİRİM:")
 		disc_label.setStyleSheet(row_label_style)
@@ -550,7 +548,7 @@ class CustomerCartScreen(QWidget):
 		total_row = QWidget()
 		total_row.setStyleSheet(row_container_style + "QWidget{background-color: #50503e;}")
 		total_layout = QHBoxLayout(total_row)
-		total_layout.setContentsMargins(5, 5, 5, 5)
+		total_layout.setContentsMargins(4, 4, 4, 4)
 
 		total_label = QLabel("TOTAL:")
 		total_label.setStyleSheet(row_label_style)

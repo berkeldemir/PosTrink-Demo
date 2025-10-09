@@ -11,8 +11,8 @@ class SaleDetailsDialog(QDialog):
 		super().__init__(parent)
 		self.setWindowTitle(f"Satış {sale_id} Detayları")
 		self.setStyleSheet("""
-			background-color: #2c3e50;
-			color: white;
+			background-color: #111;
+			color: #e9eaf2;
 		""")
 		layout = QVBoxLayout()
 		self.setLayout(layout)
@@ -42,15 +42,21 @@ class SaleDetailsDialog(QDialog):
 		table.setHorizontalHeaderLabels(["Adet", "Ürün Adı", "Tutar"])
 		table.setStyleSheet("""
 			QTableWidget {
-				background-color: #34495e;
-				color: white;
-				font-size: 28px;
+				background-color: #011f26;
+				color: #e9eaf2;
+				font-size: 16px;
+				border: 1px solid #e9eaf2;
+				border-radius: 12px;
 			}
-			QHeaderView::section {
-				background-color: #1abc9c;
-				color: white;
+			QHeaderView {
+				background-color: #05333d;
+				color: #e9eaf2;
 				font-weight: bold;
-				font-size: 28px;
+				font-size: 16px;
+				padding: 2px;
+				margin: 2px;
+				border: 1px solid #e9eaf2;
+				border-radius: 12px;
 			}
 		""")
 		table.verticalHeader().setVisible(False)
@@ -96,9 +102,9 @@ class SaleDetailsDialog(QDialog):
 		payment_infos = f"MÜŞTERİ ADI:\t\t{r["customer_name"]}\nÖDEME YÖNTEMİ:\t{r["payment_method"]}\nÖDEME DETAYI:\t\t{payment_detail}\n"
 		payment_infos_label = QLabel(payment_infos)
 		payment_infos_label.setStyleSheet("""
-			font-size: 24px;
+			font-size: 16px;
 			font-weight: medium;
-			color: white;
+			color: #e9eaf2;
 		""")
 		layout.addWidget(payment_infos_label)
 
@@ -117,9 +123,9 @@ class SalesScreen(QWidget):
 
 		self.title_text = "SATIŞLAR"
 		self.title_style = """
-			font-size: 56px;
+			font-size: 36px;
 			font-weight: bold;
-			color: white;
+			color: #e9eaf2;
 		"""
 		self.title = QLabel(self.title_text)
 		self.title.setStyleSheet(self.title_style)
@@ -128,12 +134,12 @@ class SalesScreen(QWidget):
 
 		self.inputstyle = """
 			QLineEdit {
-				font-size: 28px;
-				padding: 15px;
-				background-color: #34495e;
-				color: white;
-				border: 2px solid white;
-				border-radius: 10px;
+				font-size: 16px;
+				padding: 6px;
+				background-color: #011f26;
+				color: #e9eaf2;
+				border: 2px solid #e9eaf2;
+				border-radius: 12px;
 			}
 		"""
 
@@ -153,16 +159,16 @@ class SalesScreen(QWidget):
 		self.remove_filters_button = QPushButton("X")
 		self.remove_filters_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 28px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 16px;
 				font-weight: bold;
-				padding: 15px;
-				border-radius: 10px;
-				border: 2px solid white;
+				padding: 6px;
+				border-radius: 12px;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 
@@ -189,18 +195,18 @@ class SalesScreen(QWidget):
 		self.back_button = QPushButton("Geri")
 		self.back_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 48px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
+				padding: 8px;
+				border-radius: 12px;
 				width: 450px;
 				height: 80px;
-				border: 2px solid white;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 		main_layout.addWidget(self.back_button, alignment=Qt.AlignCenter)
@@ -228,7 +234,7 @@ class SalesScreen(QWidget):
 		if not sales:
 			no_sales = QLabel("Satış Bulunamadı!")
 			no_sales.setStyleSheet("""
-				font-size: 28px;
+				font-size: 20px;
 				color: #ccc;
 			""")
 			no_sales.setAlignment(Qt.AlignCenter)
@@ -247,26 +253,26 @@ class SalesScreen(QWidget):
 		row_widget = QWidget()
 		row_widget.setStyleSheet("""
 			QWidget {
-				background-color: #34495e;
-				border-radius: 10px;
-				padding: 15px;
-				margin: 5px;
+				background-color: #011f26;
+				border-radius: 12px;
+				padding: 4px;
+				margin: 2px;
 			}
 		""")
 		row_layout = QHBoxLayout(row_widget)
 
 		date_label = QLabel(sale_date)
 		date_label.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 		date_label.setAlignment(Qt.AlignLeft)
 
 		customer_label = QLabel(customer_name)
 		customer_label.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 			margin-right: 20px;
 		""")
@@ -274,31 +280,31 @@ class SalesScreen(QWidget):
 
 		total_label = QLabel(f"{total_amount:.2f} ₺")
 		total_label.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 		total_label.setAlignment(Qt.AlignRight)
 
 		onhold_label = QLabel("İŞLEM ASKIDA")
 		onhold_label.setStyleSheet("""
-			color: #bc9c1a;
-			font-size: 28px;
+			color: #bfab49;
+			font-size: 20px;
 			font-weight: 800;
 		""")
 
 		view_btn = QPushButton("Detay")
 		view_btn.setStyleSheet("""
 			QPushButton {
-				background-color: #1abc9c;
-				color: white;
-				font-size: 24px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 16px;
 				font-weight: 800;
-				padding: 8px 12px;
+				padding: 6px;
 				border-radius: 12px;
 			}
 			QPushButton:hover {
-				background-color: #16a085;
+				background-color: #03658c;
 			}
 		""")
 		view_btn.clicked.connect(lambda checked, sid=sale_id: self.show_sale_details(sid))
@@ -306,15 +312,15 @@ class SalesScreen(QWidget):
 		edit_btn = QPushButton("Düzenle")
 		edit_btn.setStyleSheet("""
 			QPushButton {
-				background-color: #27ae60;
-				color: white;
-				font-size: 24px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 16px;
 				font-weight: 800;
-				padding: 8px 12px;
+				padding: 6px;
 				border-radius: 12px;
 			}
 			QPushButton:hover {
-				background-color: #2ecc71;
+				background-color: #03658c;
 			}
 		""")
 		edit_btn.clicked.connect(lambda checked, sid=sale_id: self.edit_sale_requested.emit(sid))
@@ -358,7 +364,7 @@ class WelcomeScreen(QWidget):
 		label = QLabel("Hoş geldiniz!")
 		label.setAlignment(Qt.AlignCenter)
 		label.setStyleSheet("""
-			font-size: 72px;
+			font-size: 36px;
 			font-weight: bold;
 			color: #999;
 		""")

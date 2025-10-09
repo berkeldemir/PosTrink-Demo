@@ -19,9 +19,9 @@ class OnHoldOrdersScreen(QWidget):
 
 		title = QLabel("ASKIDA BEKLEYEN İŞLEMLER")
 		title.setStyleSheet("""
-			font-size: 56px;
+			font-size: 36px;
 			font-weight: bold;
-			color: white;
+			color: #e9eaf2;
 		""")
 		title.setAlignment(Qt.AlignCenter)
 		main_layout.addWidget(title)
@@ -40,18 +40,18 @@ class OnHoldOrdersScreen(QWidget):
 		back_button = QPushButton("Geri")
 		back_button.setStyleSheet("""
 			QPushButton {
-				background-color: #2c3e50;
-				color: white;
-				font-size: 48px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 20px;
 				font-weight: bold;
-				padding: 20px;
-				border-radius: 10px;
+				padding: 8px;
+				border-radius: 12px;
 				width: 450px;
 				height: 80px;
-				border: 2px solid white;
+				border: 2px solid #e9eaf2;
 			}
 			QPushButton:hover {
-				background-color: #34495e;
+				background-color: #03658c;
 			}
 		""")
 		back_button.clicked.connect(self.back_to_menu.emit)
@@ -85,33 +85,33 @@ class OnHoldOrdersScreen(QWidget):
 		row_widget = QWidget()
 		row_widget.setStyleSheet("""
 			QWidget {
-				background-color: #34495e;
-				border-radius: 10px;
-				padding: 15px;
+				background-color: #011f26;
+				border-radius: 12px;
+				padding: 6px;
 			}
 		""")
 		row_layout = QHBoxLayout(row_widget)
 		
 		date_label = QLabel(sale_date)
 		date_label.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 		date_label.setAlignment(Qt.AlignLeft)
 
 		customer_label = QLabel(customer_name)
 		customer_label.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 		customer_label.setAlignment(Qt.AlignLeft)
 
 		total_label = QLabel(f"{total_amount:.2f} ₺")
 		total_label.setStyleSheet("""
-			color: white;
-			font-size: 28px;
+			color: #e9eaf2;
+			font-size: 20px;
 			font-weight: 600;
 		""")
 		total_label.setAlignment(Qt.AlignRight)
@@ -119,16 +119,16 @@ class OnHoldOrdersScreen(QWidget):
 		btn = QPushButton("Askıdan Çağır")
 		btn.setStyleSheet("""
 			QPushButton {
-				background-color: #27ae60;
-				color: white;
-				font-size: 24px;
+				background-color: #024059;
+				color: #e9eaf2;
+				font-size: 16px;
 				font-weight: bold;
-				padding: 8px 12px;
-				border-radius: 8px;
+				padding: 6px;
+				border-radius: 12px;
 				margin-left: 10px;
 			}
 			QPushButton:hover {
-				background-color: #2ecc71;
+				background-color: #03658c;
 			}
 		""")
 		btn.setFixedSize(250, 50)
